@@ -95,14 +95,26 @@ class Model {
      * @param string $key The key to look for (table column)
      * @param string|int|float $value The value the key of the table entry must have
      * 
-     * @return bool True if the operation was successful, false if not
+     * @return array List of table entries
      */
     public function get_all_by_key_value($key, $value) {
 
         if (!in_array($key, $this->table_fields)) return false;
 
         $select_statement = self::$pdo->prepare("SELECT * FROM $this->table WHERE $key = :$key");
-        return $select_statement->execute(array($key => $value));
+        $select_statement->execute(array($key => $value));
+        return $select_statement->fetch();
+
+    }
+
+    /**
+     * Returns the id of the last inserted entry
+     * 
+     * @return int Id of the last inserted entry
+     */
+    public function get_last_insert_id() {
+
+        return self::$pdo->lastInsertId();
 
     }
 
