@@ -1,5 +1,5 @@
 <body>
 
-<?php echo $view_params['name'] ?>
+<?php echo $view_params['user_name'] ?>
 
 </body>
