@@ -93,7 +93,7 @@ class Model {
      * Select all table entries with the given value in the key field
      * 
      * @param string $key The key to look for (table column)
-     * @param string|int|flaot $value The value the key of the table entry must have
+     * @param string|int|float $value The value the key of the table entry must have
      * 
      * @return bool True if the operation was successful, false if not
      */
