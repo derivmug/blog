@@ -28,6 +28,14 @@
             <input type="password" id="pwd" name="user_password" placeholder="Password">
         </p>
 
+        <p>
+            <label for="pwd-confirm">
+                <span>Confirm password: </span>
+                <strong><abbr title="required">*</abbr></strong>
+            </label>
+            <input type="password" id="pwd-confirm" name="user_password_confirm" placeholder="Confirm password">
+        </p>
+
         <button type="submit">Register</button>
 
     </form>
