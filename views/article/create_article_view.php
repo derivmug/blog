@@ -1,5 +1,3 @@
-<body>
-
 <?php if ($view_params['logged_in']): ?>
 
     <p>Write an article</p>
@@ -31,5 +29,3 @@
     <?php require_once(__DIR__.'/view_snippets/login.php') ?>
 
 <?php endif ?>
-
-</body>

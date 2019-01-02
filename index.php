@@ -14,6 +14,7 @@ include_once __DIR__.'/controllers/RegisterViewController.php';
 include_once __DIR__.'/controllers/LoginViewController.php';
 include_once __DIR__.'/controllers/CreateArticleViewController.php';
 include_once __DIR__.'/controllers/SaveArticleViewController.php';
+include_once __DIR__.'/controllers/ArticlesViewController.php';
 
 // Create a new Router object
 $router = new Router(new Request);
@@ -66,6 +67,14 @@ $router->post('/save_article', function($request) {
 
     $save_article_controller = new SaveArticleViewController($request->get_body());
     $save_article_controller->render_view();
+
+});
+
+// Display all articles
+$router->get('/articles', function($request) {
+
+    $articles_controller = new ArticlesViewController($request->get_body());
+    $articles_controller->render_view();
 
 });
 

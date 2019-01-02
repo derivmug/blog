@@ -1,5 +1,1 @@
-<body>
-
-    <p>Registration unsuccessful</p>
-
-</body>
+<p>Registration unsuccessful</p>

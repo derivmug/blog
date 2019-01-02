@@ -1,5 +1,3 @@
-<body>
-
 <?php if ($view_params['saved_article']): ?>
 
     <p>Article saved successfully</p>
@@ -9,5 +7,3 @@
     <p>Error saving article</p>
 
 <?php endif ?>
-
-</body>
