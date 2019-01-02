@@ -12,6 +12,7 @@ include_once __DIR__.'/framework/Model.php';
 include_once __DIR__.'/controllers/IndexViewController.php';
 include_once __DIR__.'/controllers/RegisterViewController.php';
 include_once __DIR__.'/controllers/LoginViewController.php';
+include_once __DIR__.'/controllers/CreateArticleViewController.php';
 
 // Create a new Router object
 $router = new Router(new Request);
@@ -52,9 +53,10 @@ $router->post('/login', function($request) {
 });
 
 // Articles route - Display all articles
-$router->get('/articles', function() {
+$router->get('/create_article', function() {
 
-    return "Article page";
+    $create_article_controller = new CreateArticleViewController();
+    $create_article_controller->render_view();
 
 });
 
