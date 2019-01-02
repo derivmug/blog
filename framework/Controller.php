@@ -4,8 +4,6 @@ abstract class Controller {
 
     private static $default_header_path;
     private static $default_footer_path;
-
-    private $view_path;
     
     protected $params;
 
@@ -15,9 +13,8 @@ abstract class Controller {
      * @param string $view_path Path to the view the controller should render
      * @param array $params (optional) URI params
      */
-    function __construct($view_path, $params = array()) {
+    function __construct($params = array()) {
 
-        $this->view_path = $view_path;
         $this->params = $params;
 
     }
@@ -28,7 +25,7 @@ abstract class Controller {
      * 
      * @param string $title The title of the webpage
      */
-    abstract public function render_view();
+    abstract public function render_view($view_path = null);
 
 
     /**
@@ -36,10 +33,10 @@ abstract class Controller {
      * 
      * @param array $view_params An associative array with things to output on the view 
      */
-    protected function create_view($view_params) {
+    protected function create_view($view_path, $view_params) {
 
         require_once(self::$default_header_path);
-        require_once($this->view_path);
+        require_once($view_path);
         require_once(self::$default_footer_path);
 
     }

@@ -9,7 +9,7 @@ class RegisterViewController extends Controller {
 
     private $user_model;
 
-    public function render_view() {
+    public function render_view($view_path = null) {
 
         $this->user_model = new UserModel();
 
@@ -17,13 +17,15 @@ class RegisterViewController extends Controller {
 
         if ($this->handle_registration()) {
             // Successful registration
+            $view_path = __DIR__.'/../views/register/successful_view.php';
         } else {
-
+            // Unsuccessful registration
+            $view_path = __DIR__.'/../views/register/unsuccessful_view.php';
         }
 
         $view_params['title'] = 'Register View';
 
-        $this->create_view($view_params);
+        $this->create_view($view_path, $view_params);
 
     }
 
@@ -41,8 +43,13 @@ class RegisterViewController extends Controller {
                 'password' => $password_hash,
             ));
 
-            $user_id = $this->user_model->get_last_insert_id();
-            echo $user_id;
+            if ($result) {
+
+                // If the insert was successful log in the user by creating a new session
+                $user_id = $this->user_model->get_last_insert_id();
+                $_SESSION['user_id'] = $user_id;
+
+            }
 
             return $result;
 

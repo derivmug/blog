@@ -27,15 +27,15 @@ Model::set_pdo($pdo);
 $router->get('/', function($request) {
 
     // Create the IndexController with a path to the index view
-    $index_controller = new IndexViewController(__DIR__.'/views/index_view.php');
-    $index_controller->render_view();
+    $index_controller = new IndexViewController();
+    $index_controller->render_view(__DIR__.'/views/index_view.php');
 
 });
 
 // Used to register a new user
 $router->post('/register', function($request) {
 
-    $register_controller = new RegisterViewController(__DIR__.'/views/register_view.php', $request->get_body());
+    $register_controller = new RegisterViewController($request->get_body());
     $register_controller->render_view();
 
 });
