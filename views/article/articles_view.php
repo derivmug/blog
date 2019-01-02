@@ -1,7 +1,7 @@
 <div class="hero bg-dark">
     <div class ="hero-body text-center">
-        <h1>All Articles</h1>
-        <p>Here is a list of all articles every written</p>
+    <h1><i>All Articles</i></h1>
+    <p class="text-large">Here is a list of all articles written so far</p>
     </div>
 </div>
 
