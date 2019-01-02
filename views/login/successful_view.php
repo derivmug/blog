@@ -1,5 +1,5 @@
 <body>
 
-<p><?php echo $view_params['user_name'] ?></p>
+    <p><?php echo $view_params['user_name'] ?>, you are now logged in</p>
 
 </body>
