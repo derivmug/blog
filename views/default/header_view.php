@@ -18,3 +18,22 @@
 </head>
 
 <body>
+
+<header class="navbar">
+
+    <section class="navbar-section">
+        <a href="#" class="btn btn-lg m-2">About</a>
+        <a href="/articles" class="btn btn-lg m-2">All Articles</a>
+    </section>
+
+    <section class="navbar-center">
+        <a href="/" class="navbar-brand">Articly</a>
+    </section>
+
+    <section class="navbar-section">
+        <a href="https://github.com/derivmug/blog" class="btn btn-lg m-2">GitHub</a>
+    </section>
+    
+</header>
+
+<div class="divider"></div>
