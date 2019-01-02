@@ -8,6 +8,7 @@ include_once __DIR__.'/framework/Controller.php';
 include_once __DIR__.'/framework/Model.php';
 
 include_once __DIR__.'/controllers/IndexViewController.php';
+include_once __DIR__.'/controllers/RegisterViewController.php';
 
 // Create a new Router object
 $router = new Router(new Request);
@@ -23,11 +24,19 @@ if ($DEBUG_MODE) $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 Model::set_pdo($pdo);
 
 // Index route
-$router->get('/', function() {
+$router->get('/', function($request) {
 
     // Create the IndexController with a path to the index view
-    $index_controller = new IndexController(__DIR__.'/views/index_view.php');
-    $index_controller->render_view("Index view");
+    $index_controller = new IndexViewController(__DIR__.'/views/index_view.php');
+    $index_controller->render_view();
+
+});
+
+// Used to register a new user
+$router->post('/register', function($request) {
+
+    $register_controller = new RegisterViewController(__DIR__.'/views/register_view.php', $request->get_body());
+    $register_controller->render_view();
 
 });
 

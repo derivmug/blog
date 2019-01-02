@@ -28,7 +28,7 @@ abstract class Controller {
      * 
      * @param string $title The title of the webpage
      */
-    abstract public function render_view($title);
+    abstract public function render_view();
 
 
     /**

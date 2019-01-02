@@ -40,7 +40,7 @@ class Request implements IRequest {
 
             // Get all post parameters
             foreach ($_POST as $key => $value) {
-                $result[$key] = filter_input(INPUST_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+                $result[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             }
 
             return $result;
