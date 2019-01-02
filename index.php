@@ -13,6 +13,7 @@ include_once __DIR__.'/controllers/IndexViewController.php';
 include_once __DIR__.'/controllers/RegisterViewController.php';
 include_once __DIR__.'/controllers/LoginViewController.php';
 include_once __DIR__.'/controllers/CreateArticleViewController.php';
+include_once __DIR__.'/controllers/SaveArticleViewController.php';
 
 // Create a new Router object
 $router = new Router(new Request);
@@ -52,11 +53,19 @@ $router->post('/login', function($request) {
 
 });
 
-// Articles route - Display all articles
-$router->get('/create_article', function() {
+// Articles route - Create an article
+$router->get('/create_article', function($request) {
 
     $create_article_controller = new CreateArticleViewController();
     $create_article_controller->render_view();
+
+});
+
+// Save an article
+$router->post('/save_article', function($request) {
+
+    $save_article_controller = new SaveArticleViewController($request->get_body());
+    $save_article_controller->render_view();
 
 });
 

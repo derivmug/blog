@@ -13,7 +13,7 @@ class CreateArticleViewController extends Controller {
 
         $view_params['title'] = 'Create Article';
 
-        $view_path = __DIR__.'/../views/create_article_view.php';
+        $view_path = __DIR__.'/../views/article/create_article_view.php';
 
         if (isset($_SESSION['user_id'])) {
     

@@ -28,7 +28,7 @@
 
 <?php else: ?>
 
-    <?php require_once(__DIR__.'/view_snippets/login.php'); ?>
+    <?php require_once(__DIR__.'/view_snippets/login.php') ?>
 
 <?php endif ?>
 
