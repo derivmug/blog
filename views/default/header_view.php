@@ -14,30 +14,27 @@
 
     <!-- Include the Spectre CSS framework -->
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
 
 </head>
 
-<body>
+<body class="off-canvas off-canvas-sidebar-show" style="min-height: 100vh">
 
-<div class="off-canvas">
-    <a class="off-canvas-toggle btn btn-primary btn-action" href="#sidebar-id">
-        <i class="icon icon-menu"></i>
-    </a>
+    <div class="off-canvas off-canvas-sidebar-show">
+        <a class="off-canvas-toggle btn btn-primary btn-action" href="#sidebar-id"><i class="icon icon-menu"></i></a>
 
-    <div id="sidebar-id" class="off-canvas-sidebar p-absolute">
-        <ul class="nav">
-            <li class="nav-item">
-                <a href="/">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="/articles">Articles</a>
-            </li>
-        </ul>
-    </div>
+        <div id="sidebar-id" class="off-canvas-sidebar">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/articles">Articles</a>
+                </li>
+            </ul>
+        </div>
 
-    <a class="off-canvas-overlay" href="#close"></a>
+        <a class="off-canvas-overlay" href="#close"></a>
 
-    <div class="off-canvas-content">
-
-    </div>
-</div>
+        <div class="off-canvas-content">
