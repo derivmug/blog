@@ -1,1 +1,1 @@
-<p><?php echo $view_params['user_name'] ?>, you are now registrated</p>
+<p><?php echo $view_params['user_name'] ?>, you are now registered</p>

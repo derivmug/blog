@@ -1,37 +1,27 @@
 <form method="POST" action="/register">
 
-<p>
-    <label for="name">
-        <span>Name: </span>
-        <strong><abbr title="required">*</abbr></strong>
-    </label>
-    <input type="text" id="name" name="user_name" placeholder="Name">
-</p>
+    <div class="container">
+        <div class="columns">
 
-<p>
-    <label for="email">
-        <span>Email: </span>
-        <strong><abbr title="required">*</abbr></strong>
-    </label>
-    <input type="email" id="email" name="user_email" placeholder="Email">
-</p>
+            <div class="form-group column col-4 col-mx-auto my-2 card">
 
-<p>
-    <label for="pwd">
-        <span>Password: </span>
-        <strong><abbr title="required">*</abbr></strong>
-    </label>
-    <input type="password" id="pwd" name="user_password" placeholder="Password">
-</p>
+                <label class="form-label" for="name">Name</label>
+                <input class="form-input" type="text" id="name" name="user_name" placeholder="Name">
 
-<p>
-    <label for="pwd-confirm">
-        <span>Confirm password: </span>
-        <strong><abbr title="required">*</abbr></strong>
-    </label>
-    <input type="password" id="pwd-confirm" name="user_password_confirm" placeholder="Confirm password">
-</p>
+                <label class="form-label" for="email">Email</label>
+                <input class="form-input" type="email" id="email" name="user_email" placeholder="Email">
 
-<button type="submit">Register</button>
+                <label class="form-label" for="password">Password</label>
+                <input class="form-input" type="password" id="password" name="user_password" placeholder="Password">
+
+                <label class="form-label" for="password-confirm">Confirm password</label>
+                <input class="form-input" type="password" id="password-confirm" name="user_password_confirm" placeholder="Confirm password">
+
+                <button class="btn my-2" type="submit">Register</button>
+
+            </div>
+
+        </div>
+    </div>
 
 </form>
