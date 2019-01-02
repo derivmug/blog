@@ -6,6 +6,8 @@ class IndexViewController extends Controller {
 
     /**
      * Renders the index_view
+     * 
+     * @param string $view_path (optional) Path to the to be rendered view
      */
     public function render_view($view_path = null) {
 

@@ -8,6 +8,11 @@ class RegisterViewController extends Controller {
 
     private $user_model;
 
+    /**
+     * Renders the registration_view
+     * 
+     * @param string $view_path (optional) Path to the to be rendered view
+     */
     public function render_view($view_path = null) {
 
         $this->user_model = new UserModel();
@@ -32,6 +37,11 @@ class RegisterViewController extends Controller {
 
     }
 
+    /**
+     * Handles the registration
+     * 
+     * @param bool True if the registration was successful, false if not
+     */
     private function handle_registration() {
 
         if ($this->validate_input()) {
@@ -52,9 +62,9 @@ class RegisterViewController extends Controller {
                 $user_id = $this->user_model->get_last_insert_id();
                 $_SESSION['user_id'] = $user_id;
 
-            }
+                return true;
 
-            return $result;
+            }
 
         }
 
@@ -68,7 +78,7 @@ class RegisterViewController extends Controller {
         $error = false;
 
         // Validate email
-        if (!filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($this->params['user_email'], FILTER_VALIDATE_EMAIL)) {
 
             $error = true;
             echo "Email is invalid";
@@ -77,7 +87,7 @@ class RegisterViewController extends Controller {
 
         // Password must be at least 8 chars long
         // TODO: Better password validation
-        if (strlen($_POST['user_password']) < 8) {
+        if (strlen($this->params['user_password']) < 8) {
 
             $error = true;
             echo "Password must be at last eight characters long";
@@ -85,7 +95,7 @@ class RegisterViewController extends Controller {
         }
 
         // Both passwords must be equal
-        if ($_POST['user_password'] != $_POST['user_password_confirm']) {
+        if ($this->params['user_password'] != $this->params['user_password_confirm']) {
 
             $error = true;
             echo "Passwords don't match";
@@ -93,7 +103,7 @@ class RegisterViewController extends Controller {
         }
 
         // Check whether the email has already been taken
-        $entries = $this->user_model->get_all_by_key_value('email', $_POST['user_email']);
+        $entries = $this->user_model->get_all_by_key_value('email', $this->params['user_email']);
         if ($entries) {
 
             $error = true;

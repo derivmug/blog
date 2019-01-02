@@ -10,6 +10,11 @@ class LoginViewController extends Controller {
 
     private $user;
 
+    /**
+     * Renders the login_view
+     * 
+     * @param string $view_path (optional) Path to the to be rendered view
+     */
     public function render_view($view_path = null) {
 
         $this->user_model = new UserModel();
@@ -36,6 +41,11 @@ class LoginViewController extends Controller {
     }
 
 
+    /**
+     * Handels the log in
+     * 
+     * @return bool True if login was successful, false if not
+     */
     private function handle_login() {
 
         $this->user = $this->user_model->get_all_by_key_value('email', $this->params['user_email']);
