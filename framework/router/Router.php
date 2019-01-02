@@ -82,7 +82,7 @@ class Router {
     /**
      * Resolves all routes specified
      */
-    public function resolve() {
+    private function resolve() {
 
         $method_dictionary = $this->{strtolower($this->request->request_method)};
         $formated_route = $this->format_route($this->request->request_uri);
