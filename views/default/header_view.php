@@ -19,21 +19,25 @@
 
 <body>
 
-<header class="navbar">
+<div class="off-canvas">
+    <a class="off-canvas-toggle btn btn-primary btn-action" href="#sidebar-id">
+        <i class="icon icon-menu"></i>
+    </a>
 
-    <section class="navbar-section">
-        <a href="#" class="btn btn-lg m-2">About</a>
-        <a href="/articles" class="btn btn-lg m-2">All Articles</a>
-    </section>
+    <div id="sidebar-id" class="off-canvas-sidebar p-absolute">
+        <ul class="nav">
+            <li class="nav-item">
+                <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/articles">Articles</a>
+            </li>
+        </ul>
+    </div>
 
-    <section class="navbar-center">
-        <a href="/" class="navbar-brand">Articly</a>
-    </section>
+    <a class="off-canvas-overlay" href="#close"></a>
 
-    <section class="navbar-section">
-        <a href="https://github.com/derivmug/blog" class="btn btn-lg m-2">GitHub</a>
-    </section>
-    
-</header>
+    <div class="off-canvas-content">
 
-<div class="divider"></div>
+    </div>
+</div>

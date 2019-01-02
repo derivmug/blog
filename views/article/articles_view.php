@@ -1,3 +1,10 @@
+<div class="hero bg-dark">
+    <div class ="hero-body text-center">
+        <h1>All Articles</h1>
+        <p>Here is a list of all articles every written</p>
+    </div>
+</div>
+
 <?php foreach($view_params['articles'] as $key => $article): ?>
 
     <div class="container">
