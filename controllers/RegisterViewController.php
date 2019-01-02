@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 include_once __DIR__.'/../framework/Controller.php';
 
@@ -13,12 +12,16 @@ class RegisterViewController extends Controller {
 
         $this->user_model = new UserModel();
 
-        $view_params = $this->params;
+        $view_params = array();
 
         if ($this->handle_registration()) {
+
             // Successful registration
             $view_path = __DIR__.'/../views/register/successful_view.php';
+            $view_params['user_name'] = $this->params['user_name'];
+
         } else {
+
             // Unsuccessful registration
             $view_path = __DIR__.'/../views/register/unsuccessful_view.php';
         }
@@ -34,12 +37,12 @@ class RegisterViewController extends Controller {
         if ($this->validate_input()) {
 
             // Hash the password
-            $password_hash = password_hash($_POST['user_password'], PASSWORD_DEFAULT);
+            $password_hash = password_hash($this->params['user_password'], PASSWORD_DEFAULT);
 
             // Store new user in database
             $result = $this->user_model->create_new(array(
-                'name' => $_POST['user_name'],
-                'email' => $_POST['user_email'],
+                'name' => $this->params['user_name'],
+                'email' => $this->params['user_email'],
                 'password' => $password_hash,
             ));
 
