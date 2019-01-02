@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include_once __DIR__.'/config/CONFIG.php';
 
 include_once __DIR__.'/framework/router/Request.php';
@@ -9,6 +11,7 @@ include_once __DIR__.'/framework/Model.php';
 
 include_once __DIR__.'/controllers/IndexViewController.php';
 include_once __DIR__.'/controllers/RegisterViewController.php';
+include_once __DIR__.'/controllers/LoginViewController.php';
 
 // Create a new Router object
 $router = new Router(new Request);
@@ -37,6 +40,14 @@ $router->post('/register', function($request) {
 
     $register_controller = new RegisterViewController($request->get_body());
     $register_controller->render_view();
+
+});
+
+// Used to log in a user
+$router->post('/login', function($request) {
+
+    $login_controller = new LoginViewController($request->get_body());
+    $login_controller->render_view();
 
 });
 
