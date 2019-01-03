@@ -28,7 +28,7 @@ class IndexViewController extends Controller {
             $this->user_model = new UserModel();
 
             $view_params['logged_in'] = true;
-            $view_params['articles'] = $this->article_model->get_all();
+            $view_params['articles'] = $this->article_model->get_articles_with_author();
 
             // Get the name of the user
             $user = $this->user_model->get_all_by_key_value('id', $_SESSION['user_id']);

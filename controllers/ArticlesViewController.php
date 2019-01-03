@@ -26,6 +26,7 @@ class ArticlesViewController extends Controller {
 
         $articles = $this->article_model->get_all();
 
+        // Get articles from database
         $formatted_articles = array();
         foreach ($articles as $key => $article) {
             $author_name = $this->user_model->get_all_by_key_value('id', $article['author_id'])['name'];
@@ -34,7 +35,6 @@ class ArticlesViewController extends Controller {
         }
 
         $view_params['articles'] = array_reverse($formated_articles);
-
         $view_params['logged_in'] = isset($_SESSION['user_id']);
 
         $this->create_view($view_path, $view_params);

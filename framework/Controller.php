@@ -10,7 +10,6 @@ abstract class Controller {
     /**
      * Class constructor
      * 
-     * @param string $view_path Path to the view the controller should render
      * @param array $params (optional) URI params
      */
     function __construct($params = array()) {

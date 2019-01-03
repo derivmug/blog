@@ -84,9 +84,20 @@ class Router {
      */
     private function resolve() {
 
+        $formated_request_uri = '';
+
+        if (strpos($this->request->request_uri, '?')) {
+
+            $formated_request_uri = substr($this->request->request_uri, 0, strpos($this->request->request_uri, '?'));
+
+        } else {
+
+            $formated_request_uri = $this->format_route($this->request->request_uri);
+
+        }
+        
         $method_dictionary = $this->{strtolower($this->request->request_method)};
-        $formated_route = $this->format_route($this->request->request_uri);
-        $method = $method_dictionary[$formated_route];
+        $method = $method_dictionary[$formated_request_uri];
 
         if (is_null($method)) {
             $this->default_request_handler();

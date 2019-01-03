@@ -16,6 +16,7 @@ include_once __DIR__.'/controllers/CreateArticleViewController.php';
 include_once __DIR__.'/controllers/SaveArticleViewController.php';
 include_once __DIR__.'/controllers/ArticlesViewController.php';
 include_once __DIR__.'/controllers/LogoutViewController.php';
+include_once __DIR__.'/controllers/UserViewController.php';
 
 // Create a new Router object
 $router = new Router(new Request);
@@ -55,14 +56,6 @@ $router->post('/login', function($request) {
 
 });
 
-// Articles route - Create an article
-$router->get('/create_article', function($request) {
-
-    $create_article_controller = new CreateArticleViewController();
-    $create_article_controller->render_view();
-
-});
-
 // Save an article
 $router->post('/save_article', function($request) {
 
@@ -79,9 +72,18 @@ $router->get('/articles', function($request) {
 
 });
 
+// Used for log out
 $router->get('/logout', function($request) {
 
     $logout_controller = new LogoutViewController();
     $logout_controller->render_view();
+
+});
+
+// View user profiles
+$router->get('/user', function($request) {
+
+    $user_view_controller = new UserViewController();
+    $user_view_controller->render_view();
 
 });
