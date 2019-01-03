@@ -7,6 +7,7 @@
 
                 <div class="card-header">
                     <div class="card-title h5"><?=$article['header']?></div>
+                    <div class="card-subtitle text-gray"><?=$article['author_name']?></div>
                 </div>
 
                 <div class="card-body">

@@ -14,6 +14,7 @@
 
                 <div class="card-header">
                     <div class="card-title h5"><?=$article['header']?></div>
+                    <div class="card-subtitle text-gray"><i>Created at: </i><?=$article['created_at']?> - <i>Written by: </i><?=$article['author_name']?></div>
                 </div>
 
                 <div class="card-body">
