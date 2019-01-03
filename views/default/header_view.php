@@ -56,7 +56,7 @@
                     <a href="/articles">Articles</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/about">About</a>
+                    <a href="https://github.com/derivmug/blog">GitHub</a>
                 </li>
             </ul>
         </div>
