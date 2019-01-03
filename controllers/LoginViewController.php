@@ -29,7 +29,9 @@ class LoginViewController extends Controller {
         } else {
 
             // Unsuccessful login
-            $view_path = __DIR__.'/../views/long/unsuccessful_view.php';
+            $view_path = __DIR__.'/../views/login/unsuccessful_view.php';
+
+            $view_params['logged_in'] = false;
 
         }
 
@@ -47,7 +49,10 @@ class LoginViewController extends Controller {
      */
     private function handle_login() {
 
-        $this->user = $this->user_model->get_all_by_key_value('email', $this->params['user_email']);
+        // Validate input and return false if it's invalid
+        if (!$this->validate_input()) return false;
+
+        $this->user = $this->user_model->get_all_by_key_value('email', $this->params['user_email'])[0];
 
         if ($this->user && password_verify($this->params['user_password'], $this->user['password'])) {
 
@@ -58,6 +63,19 @@ class LoginViewController extends Controller {
         }
 
         return false;
+
+    }
+
+
+    private function validate_input() {
+
+        // Validate email
+        if (!filter_var($this->params['user_email'], FILTER_VALIDATE_EMAIL)) return false;
+
+        // Validate password
+        if (strlen($this->params['user_password']) < 8) return false;
+
+        return true;
 
     }
 

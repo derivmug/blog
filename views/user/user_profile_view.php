@@ -4,3 +4,5 @@
         <p class="text-large">The user's profile</p>
     </div>
 </div>
+
+<?php require_once(__DIR__.'/../view_snippets/all_articles.php') ?>

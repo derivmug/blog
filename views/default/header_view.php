@@ -38,7 +38,7 @@
             <?php else: ?>
 
                 <div class="btns d-flex">
-                    <a class="btn ml-1 bg-dark text-light btn-link" href="/" target="_blank">Profile</a>
+                    <a class="btn ml-1 bg-dark text-light btn-link" href="/user?id=<?=$_SESSION['user_id']?>" target="_blank">Profile</a>
                     <a class="btn ml-1 bg-dark text-light btn-link" href="/logout" target="_blank">Log out</a>
                 </div>
 

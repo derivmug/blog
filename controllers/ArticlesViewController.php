@@ -29,7 +29,7 @@ class ArticlesViewController extends Controller {
         // Get articles from database
         $formatted_articles = array();
         foreach ($articles as $key => $article) {
-            $author_name = $this->user_model->get_all_by_key_value('id', $article['author_id'])['name'];
+            $author_name = $this->user_model->get_all_by_key_value('id', $article['author_id'])[0]['name'];
             $article['author_name'] = $author_name;
             $formated_articles[] = $article;
         }

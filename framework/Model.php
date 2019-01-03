@@ -103,7 +103,12 @@ class Model {
 
         $select_statement = self::$pdo->prepare("SELECT * FROM $this->table WHERE $key = :$key");
         $select_statement->execute(array($key => $value));
-        return $select_statement->fetch();
+
+        $result = array();
+        while ($row = $select_statement->fetch()) {
+            $result[] = $row;
+        }
+        return $result;
 
     }
 

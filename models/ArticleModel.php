@@ -29,7 +29,7 @@ class ArticleModel extends Model {
 
         $formated_articles = array();
         foreach ($articles as $key => $article) {
-            $author_name = $user_model->get_all_by_key_value('id', $article['author_id'])['name'];
+            $author_name = $user_model->get_all_by_key_value('id', $article['author_id'])[0]['name'];
             $article['author_name'] = $author_name;
             $formated_articles[] = $article;
         }

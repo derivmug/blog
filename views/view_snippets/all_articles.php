@@ -1,4 +1,4 @@
-<?php foreach($view_params['articles'] as $key => $article): ?>
+<?php if ($view_params['articles']) foreach($view_params['articles'] as $key => $article): ?>
 
     <div class="container m-2">
         <div class="columns">

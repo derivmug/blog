@@ -31,7 +31,7 @@ class IndexViewController extends Controller {
             $view_params['articles'] = $this->article_model->get_articles_with_author();
 
             // Get the name of the user
-            $user = $this->user_model->get_all_by_key_value('id', $_SESSION['user_id']);
+            $user = $this->user_model->get_all_by_key_value('id', $_SESSION['user_id'])[0];
             $view_params['user_name'] = $user['name'];
             
         } 
