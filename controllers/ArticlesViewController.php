@@ -23,6 +23,8 @@ class ArticlesViewController extends Controller {
 
         $view_params['articles'] = $this->article_model->get_all();
 
+        $view_params['logged_in'] = isset($_SESSION['user_id']);
+
         $this->create_view($view_path, $view_params);
 
     }

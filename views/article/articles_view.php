@@ -7,7 +7,7 @@
 
 <?php foreach($view_params['articles'] as $key => $article): ?>
 
-    <div class="container">
+    <div class="container m-2">
         <div class="columns">
 
             <div class="column col-6 col-mx-auto card my-2">
