@@ -62,11 +62,12 @@
         </div>
     </div>
 
-    <form method="POST" action="/save_article">
-        <div class="container">
-            <div class="columns">
+    <div class="container">
+        <div class="columns">
 
-                <div class="form-group column col-4 col-mx-auto my-2 card">
+            <form method="POST" action="/save_article" class="column col-4 col-mx-auto my-4">
+
+                <div class="form-group card p-2">
 
                     <label class="form-label" for="header">Header</label>
                     <input class="form-input" type="text" id="header" name="article_header" placeholder="Header">
@@ -78,10 +79,34 @@
 
                 </div>
 
-            </div>
-        </div>
-    </form>
+            </form>
 
-    <?php require_once(__DIR__.'/view_snippets/all_articles.php') ?>
+            <div class="column col-4 col-mx-auto my-4">
+
+            <?php if ($view_params['articles']) foreach($view_params['articles'] as $key => $article): ?>
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <div class="card-title h5"><?=$article['header']?></div>
+                        <div class="card-subtitle text-gray">
+                            <i>Created at: </i><?=$article['created_at']?> - <i>Written by: </i>
+                            <a href="/user?id=<?=$article['author_id']?>"><?=$article['author_name']?></a>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <?=$article['content']?>
+                    </div>
+
+                </div>
+
+            <?php endforeach ?>
+
+            </div>
+
+        </div>
+    </div>
+
 
 <?php endif ?>

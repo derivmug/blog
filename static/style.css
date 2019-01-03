@@ -24,3 +24,25 @@ body {
     position: fixed;
     
 }
+
+.green-button {
+
+    border-color: #9BC243;
+    color: #9BC243;
+
+}
+
+.green-button:hover {
+
+    background-color: #9BC243;
+    border-color: #9BC243;
+    color: white;
+
+}
+
+.my-4 {
+
+    margin-top: 32px;
+    margin-bottom: 32px;
+
+}

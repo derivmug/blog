@@ -28,7 +28,12 @@ class IndexViewController extends Controller {
             $this->user_model = new UserModel();
 
             $view_params['logged_in'] = true;
-            $view_params['articles'] = $this->article_model->get_articles_with_author();
+
+            // Limit amount of articles shown to 5
+            $new_articles = $this->article_model->get_articles_with_author();
+            $new_articles = array_slice($new_articles, 0, 5);
+
+            $view_params['articles'] = $new_articles;
 
             // Get the name of the user
             $user = $this->user_model->get_all_by_key_value('id', $_SESSION['user_id'])[0];
