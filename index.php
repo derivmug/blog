@@ -15,6 +15,7 @@ include_once __DIR__.'/controllers/LoginViewController.php';
 include_once __DIR__.'/controllers/CreateArticleViewController.php';
 include_once __DIR__.'/controllers/SaveArticleViewController.php';
 include_once __DIR__.'/controllers/ArticlesViewController.php';
+include_once __DIR__.'/controllers/LogoutViewController.php';
 
 // Create a new Router object
 $router = new Router(new Request);
@@ -78,3 +79,9 @@ $router->get('/articles', function($request) {
 
 });
 
+$router->get('/logout', function($request) {
+
+    $logout_controller = new LogoutViewController();
+    $logout_controller->render_view();
+
+});

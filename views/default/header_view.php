@@ -26,6 +26,26 @@
     <div class="off-canvas off-canvas-sidebar-show full-sidebar">
         <a class="off-canvas-toggle btn btn-primary btn-action" href="#sidebar-id"><i class="icon icon-menu"></i></a>
 
+        <div class="panel-navbar">
+
+            <?php if (!$view_params['logged_in']): ?>
+
+                <div class="btns d-flex">
+                    <a class="btn ml-1 bg-dark text-light btn-link" href="/" target="_blank">Login</a>
+                    <a class="btn ml-1 bg-dark text-light btn-link" href="/" target="_blank">Register</a>
+                </div>
+
+            <?php else: ?>
+
+                <div class="btns d-flex">
+                    <a class="btn ml-1 bg-dark text-light btn-link" href="/" target="_blank">Profile</a>
+                    <a class="btn ml-1 bg-dark text-light btn-link" href="/logout" target="_blank">Log out</a>
+                </div>
+
+            <?php endif ?>
+
+        </div>
+
         <!-- Sidebar navigation -->
         <div id="sidebar-id" class="off-canvas-sidebar full-sidebar">
             <ul class="nav p-2 text-large">
@@ -34,6 +54,9 @@
                 </li>
                 <li class="nav-item">
                     <a href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about">About</a>
                 </li>
             </ul>
         </div>
