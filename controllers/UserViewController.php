@@ -9,7 +9,11 @@ class UserViewController extends Controller {
 
     public function render_view($view_path = null) {
 
-        var_dump($_GET);
+        $view_path = __DIR__.'/../views/user/user_profile_view.php';
+
+        $view_params['logged_in'] = isset($_SESSION['user_id']);
+
+        $this->create_view($view_path, $view_params);
 
     }
 
