@@ -21,6 +21,8 @@ class RegisterViewController extends Controller {
 
         if ($this->handle_registration()) {
 
+            header('Location: /');
+
             // Successful registration
             $view_path = __DIR__.'/../views/register/successful_view.php';
             $view_params['user_name'] = $this->params['user_name'];

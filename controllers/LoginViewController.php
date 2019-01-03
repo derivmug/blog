@@ -23,11 +23,8 @@ class LoginViewController extends Controller {
 
         if ($this->handle_login()) {
 
+            // Redirect the user to the index page if login was successful
             header('Location: /');
-
-            // Successful login
-            $view_path = __DIR__.'/../views/login/successful_view.php';
-            $view_params['user_name'] = $this->user['name'];
 
         } else {
 
