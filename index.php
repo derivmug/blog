@@ -17,6 +17,7 @@ include_once __DIR__.'/controllers/ArticlesViewController.php';
 include_once __DIR__.'/controllers/LogoutViewController.php';
 include_once __DIR__.'/controllers/UserViewController.php';
 include_once __DIR__.'/controllers/ArticleViewController.php';
+include_once __DIR__.'/controllers/SaveCommentViewController.php';
 
 // Create a new Router object
 $router = new Router(new Request);
@@ -92,5 +93,12 @@ $router->get('/article', function($request) {
 
     $article_view_controller = new ArticleViewController();
     $article_view_controller->render_view();
+
+});
+
+$router->post('/save_comment', function($request) {
+
+    $save_comment_view_controller = new SaveCommentViewController($request->get_body());
+    $save_comment_view_controller->render_view();
 
 });
