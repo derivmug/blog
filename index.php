@@ -16,6 +16,7 @@ include_once __DIR__.'/controllers/SaveArticleViewController.php';
 include_once __DIR__.'/controllers/ArticlesViewController.php';
 include_once __DIR__.'/controllers/LogoutViewController.php';
 include_once __DIR__.'/controllers/UserViewController.php';
+include_once __DIR__.'/controllers/ArticleViewController.php';
 
 // Create a new Router object
 $router = new Router(new Request);
@@ -84,5 +85,12 @@ $router->get('/user', function($request) {
 
     $user_view_controller = new UserViewController();
     $user_view_controller->render_view();
+
+});
+
+$router->get('/article', function($request) {
+
+    $article_view_controller = new ArticleViewController();
+    $article_view_controller->render_view();
 
 });

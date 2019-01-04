@@ -93,7 +93,7 @@
 
             <?php if ($view_params['articles']) foreach($view_params['articles'] as $key => $article): ?>
 
-                <div class="card">
+                <div class="card my-4">
 
                     <div class="card-header">
                         <div class="card-title h5"><?=$article['header']?></div>
