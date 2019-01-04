@@ -48,6 +48,13 @@
 
         <!-- Sidebar navigation -->
         <div id="sidebar-id" class="off-canvas-sidebar full-sidebar">
+
+            <div class="brand">
+                <a class="logs" href="/">
+                    <h2>artics</h2>
+                </a>
+            </div>
+
             <ul class="nav p-2 text-large">
                 <li class="nav-item">
                     <a href="/">Home</a>

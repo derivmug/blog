@@ -46,3 +46,17 @@ body {
     margin-bottom: 32px;
 
 }
+
+.brand {
+
+    text-align: center;
+    margin-top: 0.75rem;
+
+}
+
+.logo {
+
+    text-align: center;
+    color: #5755d9;
+
+}
