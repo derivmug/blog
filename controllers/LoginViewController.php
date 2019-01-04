@@ -52,7 +52,16 @@ class LoginViewController extends Controller {
         // Validate input and return false if it's invalid
         if (!$this->validate_input()) return false;
 
-        $this->user = $this->user_model->get_all_by_key_value('email', $this->params['user_email'])[0];
+        $user_query = $this->user_model->get_all_by_key_value('email', $this->params['user_email']);
+        if (sizeof($user_query) > 0) {
+
+            $this->user = $user_query[0];
+
+        } else {
+            
+            return false;
+
+        }
 
         if ($this->user && password_verify($this->params['user_password'], $this->user['password'])) {
 

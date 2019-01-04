@@ -5,4 +5,6 @@
     </div>
 </div>
 
+<h3 class="text-center my-4">All articles</h3>
+
 <?php require_once(__DIR__.'/../view_snippets/all_articles.php') ?>

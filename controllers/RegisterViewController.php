@@ -23,11 +23,9 @@ class RegisterViewController extends Controller {
 
             header('Location: /');
 
-            // Successful registration
-            $view_path = __DIR__.'/../views/register/successful_view.php';
-            $view_params['user_name'] = $this->params['user_name'];
-
         } else {
+
+            $view_params['logged_in'] = false;
 
             // Unsuccessful registration
             $view_path = __DIR__.'/../views/register/unsuccessful_view.php';
@@ -83,7 +81,6 @@ class RegisterViewController extends Controller {
         if (!filter_var($this->params['user_email'], FILTER_VALIDATE_EMAIL)) {
 
             $error = true;
-            echo "Email is invalid";
 
         }
 
@@ -92,7 +89,6 @@ class RegisterViewController extends Controller {
         if (strlen($this->params['user_password']) < 8) {
 
             $error = true;
-            echo "Password must be at last eight characters long";
 
         }
 
@@ -100,7 +96,6 @@ class RegisterViewController extends Controller {
         if ($this->params['user_password'] != $this->params['user_password_confirm']) {
 
             $error = true;
-            echo "Passwords don't match";
 
         }
 
@@ -109,7 +104,6 @@ class RegisterViewController extends Controller {
         if ($entries) {
 
             $error = true;
-            echo "Email has already been taken";
 
         }
 

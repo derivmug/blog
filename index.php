@@ -12,7 +12,6 @@ include_once __DIR__.'/framework/Model.php';
 include_once __DIR__.'/controllers/IndexViewController.php';
 include_once __DIR__.'/controllers/RegisterViewController.php';
 include_once __DIR__.'/controllers/LoginViewController.php';
-include_once __DIR__.'/controllers/CreateArticleViewController.php';
 include_once __DIR__.'/controllers/SaveArticleViewController.php';
 include_once __DIR__.'/controllers/ArticlesViewController.php';
 include_once __DIR__.'/controllers/LogoutViewController.php';

@@ -58,30 +58,38 @@
     <div class="hero bg-dark">
         <div class ="hero-body text-center">
             <h1><i>Welcome back <?=$view_params['user_name']?></i></h1>
-            <p class="text-large">Some very thoughtful quote</p>
+            <p class="text-large">Have a nice stay</p>
         </div>
     </div>
 
     <div class="container">
         <div class="columns">
 
-            <form method="POST" action="/save_article" class="column col-4 col-mx-auto my-4">
+            <div class="column col-4 col-mx-auto my-4">
 
-                <div class="form-group card p-2">
+                <h3 class="text-center">Write an article</h3>
 
-                    <label class="form-label" for="header">Header</label>
-                    <input class="form-input" type="text" id="header" name="article_header" placeholder="Header">
+                <form method="POST" action="/save_article">
 
-                    <label class="form-label" for="content">Content</label>
-                    <textarea class="form-input" id="content" name="article_content" placeholder="Content"></textarea>
+                    <div class="form-group card p-2">
 
-                    <button class="btn my-2" type="submit">Create article</button>
+                        <label class="form-label label-lg" for="header">Header</label>
+                        <input class="form-input input-lg" type="text" id="header" name="article_header" placeholder="Header">
 
-                </div>
+                        <label class="form-label label-lg" for="content">Content</label>
+                        <textarea class="form-input input-lg" id="content" name="article_content" placeholder="Content"></textarea>
 
-            </form>
+                        <button class="btn my-2" type="submit">Create article</button>
+
+                    </div>
+
+                </form>
+
+            </div>
 
             <div class="column col-4 col-mx-auto my-4">
+
+                <h3 class="text-center">Last five articles published</h3>
 
             <?php if ($view_params['articles']) foreach($view_params['articles'] as $key => $article): ?>
 
