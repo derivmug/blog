@@ -60,7 +60,7 @@ class RegisterViewController extends Controller {
 
                 // If the insert was successful log in the user by creating a new session
                 $user_id = $this->user_model->get_last_insert_id();
-                $_SESSION['user_id'] = $user_id;
+                $_SESSION['user_hash'] = hash('sha256', $this->params['user_email']);
 
                 return true;
 

@@ -27,7 +27,7 @@ class SaveArticleViewController extends Controller {
 
         } else {
 
-            $view_params['logged_in'] = isset($_SESSION['user_id']);
+            $view_params['logged_in'] = isset($_SESSION['user_hash']);
 
             $this->create_view(__DIR__.'/../views/article/save_article_view.php', $view_params);
 

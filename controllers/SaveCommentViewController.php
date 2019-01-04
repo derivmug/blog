@@ -17,6 +17,8 @@ class SaveCommentViewController extends Controller {
 
         $view_params['title'] = 'Save comment';
 
+        $view_params['logged_in'] = isset($_SESSION['user_hash']);
+
         if ($view_params['saved_successfully'] = $this->save_comment()) {
 
             header('Location: /article?id='.$_SESSION['article_id']);

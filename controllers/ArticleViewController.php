@@ -25,7 +25,7 @@ class ArticleViewController extends Controller {
         $this->comment_model = new CommentModel();
 
         // Check whether the user is logged in
-        $view_params['logged_in'] = isset($_SESSION['user_id']);
+        $view_params['logged_in'] = isset($_SESSION['user_hash']);
        
         // Get article with additional information from other tables
         $article = $this->article_model->get_all_by_key_value('id', $_GET['id'])[0];

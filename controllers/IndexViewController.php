@@ -22,7 +22,7 @@ class IndexViewController extends Controller {
         $view_params['logged_in'] = false;
 
         // Check whether the user is logged in
-        if (isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user_hash'])) {
 
             $this->article_model = new ArticleModel();
             $this->user_model = new UserModel();

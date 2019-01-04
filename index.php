@@ -28,6 +28,7 @@ Controller::set_default_footer_path(__DIR__.'/views/default/footer_view.php');
 
 // Create a php database object for the models
 $pdo = new PDO('mysql:host='.$DB_HOST.';dbname='.$DB_NAME, $DB_USER, $DB_PASSWORD);
+
 // Set PDO into error mode if the DEBUG config is true
 if ($DEBUG_MODE) $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 Model::set_pdo($pdo);
@@ -89,6 +90,7 @@ $router->get('/user', function($request) {
 
 });
 
+// View a single article with comments
 $router->get('/article', function($request) {
 
     $article_view_controller = new ArticleViewController();
@@ -96,6 +98,7 @@ $router->get('/article', function($request) {
 
 });
 
+// Used to save comments
 $router->post('/save_comment', function($request) {
 
     $save_comment_view_controller = new SaveCommentViewController($request->get_body());
