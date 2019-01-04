@@ -8,6 +8,11 @@ class SaveArticleViewController extends Controller {
 
     private $article_model;
 
+    /**
+     * Controls and renders the save_article view
+     * 
+     * @param string $view_path (optional) Path to render
+     */
     public function render_view($view_path = null) {
 
         $this->article_model = new ArticleModel();
@@ -16,11 +21,26 @@ class SaveArticleViewController extends Controller {
 
         $view_params['saved_article'] = $this->save_article();
 
-        $this->create_view(__DIR__.'/../views/article/save_article_view.php', $view_params);
+        if ($view_params['saved_article']) {
+
+            header('Location: /article?id='.$this->article_model->get_last_insert_id());
+
+        } else {
+
+            $view_params['logged_in'] = isset($_SESSION['user_hash']);
+
+            $this->create_view(__DIR__.'/../views/article/save_article_view.php', $view_params);
+
+        }
 
     }
 
 
+    /**
+     * Saves the article
+     * 
+     * @return bool True if successful, false otherwise
+     */
     private function save_article() {
 
         $result = $this->article_model->create_new(array(

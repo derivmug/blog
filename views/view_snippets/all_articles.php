@@ -6,7 +6,10 @@
             <div class="column col-6 col-mx-auto card my-2">
 
                 <div class="card-header">
-                    <div class="card-title h5"><?=$article['header']?></div>
+                    <a href="/article?id=<?=$article['id']?>">
+                        <div class="card-title h5"><?=$article['header']?></div>
+                    </a>
+
                     <div class="card-subtitle text-gray">
                         <i>Created at: </i><?=$article['created_at']?> - <i>Written by: </i>
                         <a href="/user?id=<?=$article['author_id']?>"><?=$article['author_name']?></a>

@@ -35,7 +35,7 @@ class ArticlesViewController extends Controller {
         }
 
         $view_params['articles'] = array_reverse($formated_articles);
-        $view_params['logged_in'] = isset($_SESSION['user_id']);
+        $view_params['logged_in'] = isset($_SESSION['user_hash']);
 
         $this->create_view($view_path, $view_params);
 

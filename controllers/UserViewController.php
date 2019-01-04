@@ -19,7 +19,7 @@ class UserViewController extends Controller {
         
         $user_name = $this->user_model->get_all_by_key_value('id', $_GET['id'])[0]['name'];
 
-        $view_params['logged_in'] = isset($_SESSION['user_id']);
+        $view_params['logged_in'] = isset($_SESSION['user_hash']);
         $view_params['user_name'] = $user_name;
         $view_params['title'] = 'Profile: '.$user_name;
 

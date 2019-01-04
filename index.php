@@ -16,6 +16,8 @@ include_once __DIR__.'/controllers/SaveArticleViewController.php';
 include_once __DIR__.'/controllers/ArticlesViewController.php';
 include_once __DIR__.'/controllers/LogoutViewController.php';
 include_once __DIR__.'/controllers/UserViewController.php';
+include_once __DIR__.'/controllers/ArticleViewController.php';
+include_once __DIR__.'/controllers/SaveCommentViewController.php';
 
 // Create a new Router object
 $router = new Router(new Request);
@@ -26,6 +28,7 @@ Controller::set_default_footer_path(__DIR__.'/views/default/footer_view.php');
 
 // Create a php database object for the models
 $pdo = new PDO('mysql:host='.$DB_HOST.';dbname='.$DB_NAME, $DB_USER, $DB_PASSWORD);
+
 // Set PDO into error mode if the DEBUG config is true
 if ($DEBUG_MODE) $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 Model::set_pdo($pdo);
@@ -84,5 +87,21 @@ $router->get('/user', function($request) {
 
     $user_view_controller = new UserViewController();
     $user_view_controller->render_view();
+
+});
+
+// View a single article with comments
+$router->get('/article', function($request) {
+
+    $article_view_controller = new ArticleViewController();
+    $article_view_controller->render_view();
+
+});
+
+// Used to save comments
+$router->post('/save_comment', function($request) {
+
+    $save_comment_view_controller = new SaveCommentViewController($request->get_body());
+    $save_comment_view_controller->render_view();
 
 });

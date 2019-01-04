@@ -65,7 +65,7 @@ class LoginViewController extends Controller {
 
         if ($this->user && password_verify($this->params['user_password'], $this->user['password'])) {
 
-            $_SESSION['user_id'] = $this->user['id'];
+            $_SESSION['user_hash'] = hash('sha256', $this->user['email']);
 
             return true;
 
